@@ -1,27 +1,27 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.subsystems.Drive;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-public class Drive {
+public class DriveSubsystem {
     private HardwareMap hardwareMap;
 
-    private static Drive instance;
+    private static DriveSubsystem instance;
     private Gamepad gamepad1;
     public DcMotor frontLeft;
     public DcMotor frontRight;
     public DcMotor backLeft;
     public DcMotor backRight;
 
-    private Drive(HardwareMap hardwareMap, Gamepad gamepad1) {
+    private DriveSubsystem(HardwareMap hardwareMap, Gamepad gamepad1) {
         this.hardwareMap = hardwareMap;
         this.gamepad1 = gamepad1;
     }
 
-    public static Drive getInstance(HardwareMap hardwareMap, Gamepad gamepad1) {
+    public static DriveSubsystem getInstance(HardwareMap hardwareMap, Gamepad gamepad1) {
         if (instance == null) {
-            instance = new Drive(hardwareMap, gamepad1);
+            instance = new DriveSubsystem(hardwareMap, gamepad1);
         }
         return instance;
     }
