@@ -1,8 +1,20 @@
+
+
 repositories {
     mavenCentral()
     google() // Needed for androidx
     maven { url 'https://repo.dairy.foundation/releases/'}
 }
+
+//ftc {
+//    dairy {
+//        implementation(Sloth)
+//        // if you want slothboard too
+//        implementation(slothboard)
+//        // if you want panels too
+//        implementation(ftControl.fullpanels)
+//    }
+//}
 
 dependencies {
     implementation 'org.firstinspires.ftc:Inspection:12.0.0'
@@ -15,6 +27,8 @@ dependencies {
     implementation 'org.firstinspires.ftc:Vision:12.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.pedropathing:revhub:3.0.2'
-    implementation 'com.pedropathing:tuning:1.0.0'
+    implementation 'com.pedropathing:tuning:1.0.3'
+    implementation("dev.frozenmilk.sinister:Sloth:0.3.2")
+
 }
 
