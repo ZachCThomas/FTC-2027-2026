@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.subsystems.Intake;
 
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -14,6 +16,8 @@ public class IntakeSubsystem {
     private static IntakeSubsystem instance;
     private intakeState state;
 
+    boolean previousLeftBumper;
+    boolean previousRightBumper;
 
 
     private IntakeSubsystem(HardwareMap hardwareMap, Gamepad gamepad1){
@@ -37,16 +41,40 @@ public class IntakeSubsystem {
 
         intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
         setState(intakeState.STOP);
+        previousRightBumper = false;
+        previousLeftBumper = false;
     }
 
     public void loop(){
-        if (gamepad1.b){
+        boolean leftBumper = gamepad1.left_bumper;
+        boolean rightBumper = gamepad1.right_bumper;
+        boolean leftBumperPressed = leftBumper && !previousLeftBumper;
+        boolean rightBumperPressed = rightBumper && !previousRightBumper;
+
+        if (leftBumper && rightBumper) {
+            setState(intakeState.STOP);
+        } else if (leftBumperPressed) {
             setState(intakeState.INTAKE);
-        } else  if (gamepad1.a){
+        } else if (rightBumperPressed) {
             setState(intakeState.OUTTAKE);
-        } else {
-            setState(IntakeConstants.intakeState.STOP);
         }
+
+        previousLeftBumper = leftBumper;
+        previousRightBumper = rightBumper;
+//        if (gamepad1.a&& !x){
+//            setState(intakeState.INTAKE);
+//            x = true;
+//            y = false;
+//        } else  if (gamepad1.b && !y){
+//            setState(intakeState.OUTTAKE);
+//            y = true;
+//            x = false;
+//        } else if ((gamepad1.b && y) || (gamepad1.a && x)) {
+//            setState(IntakeConstants.intakeState.STOP);
+//            x = false;
+//            y = false;
+//        }
+//         telemetry.addData( "intake state", intakeMotor.getPower());
     }
 
 

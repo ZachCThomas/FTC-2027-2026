@@ -1,14 +1,15 @@
 package org.firstinspires.ftc.teamcode.subsystems.Drive;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DriveSubsystem {
-    private HardwareMap hardwareMap;
+    private final HardwareMap hardwareMap;
 
     private static DriveSubsystem instance;
-    private Gamepad gamepad1;
+    private final Gamepad gamepad1;
     public DcMotor frontLeft;
     public DcMotor frontRight;
     public DcMotor backLeft;
@@ -27,13 +28,13 @@ public class DriveSubsystem {
     }
     public void init() {
 
-        frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
-        frontRight = hardwareMap.get(DcMotor.class, "frontRight");
-        backLeft = hardwareMap.get(DcMotor.class, "backLeft");
-        backRight = hardwareMap.get(DcMotor.class, "backRight");
+        frontLeft = hardwareMap.get(DcMotor.class, DriveConstants.FRONT_LEFT_MOTOR_NAME);
+        frontRight = hardwareMap.get(DcMotor.class, DriveConstants.FRONT_RIGHT_MOTOR_NAME);
+        backLeft = hardwareMap.get(DcMotor.class, DriveConstants.BACK_LEFT_MOTOR_NAME);
+        backRight = hardwareMap.get(DcMotor.class, DriveConstants.BACK_RIGHT_MOTOR_NAME);
 
-        frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        backLeft.setDirection(DcMotor.Direction.REVERSE);
+        frontLeft.setDirection(DcMotor.Direction.FORWARD);
+        backLeft.setDirection(DcMotor.Direction.FORWARD);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
         backRight.setDirection(DcMotor.Direction.FORWARD);
 
