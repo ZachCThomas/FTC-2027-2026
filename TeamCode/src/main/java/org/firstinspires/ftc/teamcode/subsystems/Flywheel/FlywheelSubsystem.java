@@ -1,10 +1,10 @@
 
-package org.firstinspires.ftc.teamcode.subsystems.Shooter;
+package org.firstinspires.ftc.teamcode.subsystems.Flywheel;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import org.firstinspires.ftc.teamcode.subsystems.Flywheel.FlywheelConstants;
 
 
 public class FlywheelSubsystem {

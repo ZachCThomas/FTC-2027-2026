@@ -1,10 +1,10 @@
 
-package org.firstinspires.ftc.teamcode.subsystems.Shooter;
+package org.firstinspires.ftc.teamcode.subsystems.Flywheel;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-public final class FlywheelConstants {
+public class FlywheelConstants {
 
     // Motor hardware configuration name
     public static final String MOTOR_NAME = "flywheel";

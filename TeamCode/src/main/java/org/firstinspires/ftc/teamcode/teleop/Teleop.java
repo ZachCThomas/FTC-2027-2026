@@ -1,14 +1,12 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
-import com.pedropathing.follower.Follower;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.pedro.Constants;
 import org.firstinspires.ftc.teamcode.subsystems.Drive.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.Indexer.IndexerSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.Intake.IntakeSubsystem;
-import org.firstinspires.ftc.teamcode.subsystems.Shooter.FlywheelSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.Flywheel.FlywheelSubsystem;
 // 13, 23, 18, 7, 38
 
 @TeleOp(name = "MecanumTeleOp")

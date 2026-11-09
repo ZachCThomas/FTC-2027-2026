@@ -13,12 +13,10 @@ public class IndexerSubsystem {
     private HardwareMap hardwareMap;
 
     private intakeState state;
-
     private CRServo indexerServo;
     private boolean previousX;
-    private boolean previousY;
-
     private static IndexerSubsystem instance;
+    private boolean flipflop;
 
     private IndexerSubsystem(HardwareMap hardwareMap, Gamepad gamepad1){
         this.hardwareMap = hardwareMap;
@@ -40,26 +38,23 @@ public class IndexerSubsystem {
         indexerServo = hardwareMap.get(CRServo.class,"indexerServo");
         indexerServo.setPower(0);
          previousX = false;
-         previousY = false;
+         flipflop = false;
 
     }
 
     public void loop(){
         boolean x = gamepad1.x;
-        boolean y = gamepad1.y;
         boolean xPressed = x && !previousX;
-        boolean yPressed = y && !previousY;
 
-        if (x && y) {
-            setState(IntakeConstants.intakeState.STOP);
-        } else if (xPressed) {
-            setState(IntakeConstants.intakeState.INTAKE);
-        } else if (yPressed) {
-            setState(IntakeConstants.intakeState.OUTTAKE);
+        if (xPressed) {
+            flipflop = !flipflop;
+
+            if (flipflop) {
+                setState(IntakeConstants.intakeState.INTAKE);
+            } else {
+                setState(IntakeConstants.intakeState.STOP);
+            }
         }
-
         previousX = x;
-        previousY = y;
-
     }
 }
